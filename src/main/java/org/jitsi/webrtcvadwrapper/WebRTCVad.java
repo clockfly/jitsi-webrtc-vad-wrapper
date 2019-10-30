@@ -17,7 +17,9 @@
 package org.jitsi.webrtcvadwrapper;
 
 import org.jitsi.webrtcvadwrapper.Exceptions.*;
+import org.scijava.nativelib.NativeLoader;
 
+import java.io.IOException;
 import java.util.*;
 
 /**
@@ -36,9 +38,9 @@ public class WebRTCVad
     {
         try
         {
-            System.loadLibrary("webrtcvadwrapper");
+            NativeLoader.loadLibrary("webrtcvadwrapper");
         }
-        catch (UnsatisfiedLinkError e)
+        catch (Exception e)
         {
             e.printStackTrace();
         }
